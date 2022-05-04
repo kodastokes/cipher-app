@@ -1,10 +1,8 @@
 function PolybiusForm({
   handleContentChange,
-  handleShiftChange,
-  handleCheckedChange,
+  handleEncodeStatusChange,
   content,
-  shift,
-  checked,
+  encodeStatus,
 }) {
   return (
     <div>
@@ -14,8 +12,8 @@ function PolybiusForm({
           id="type"
           name="type"
           required={true}
-          onChange={handleCheckedChange}
-          value={checked}
+          onChange={handleEncodeStatusChange}
+          value={encodeStatus}
         >
           <option>Decode</option>
           <option>Encode</option>
@@ -26,7 +24,7 @@ function PolybiusForm({
       <textarea
         id="content"
         name="content"
-        placeholder="Text to Encode or Decode"
+        placeholder="Text to Decode or Encode"
         required={true}
         rows={3}
         onChange={handleContentChange}

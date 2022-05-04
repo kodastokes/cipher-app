@@ -1,10 +1,10 @@
 function SubstitutionForm({
   handleContentChange,
-  handleShiftChange,
-  handleCheckedChange,
+  handleAlphabetChange,
+  handleEncodeStatusChange,
   content,
   alphabet,
-  checked,
+  encodeStatus,
 }) {
   return (
     <div>
@@ -14,8 +14,8 @@ function SubstitutionForm({
           id="type"
           name="type"
           required={true}
-          onChange={handleCheckedChange}
-          value={checked}
+          onChange={handleEncodeStatusChange}
+          value={encodeStatus}
         >
           <option>Decode</option>
           <option>Encode</option>
@@ -26,7 +26,7 @@ function SubstitutionForm({
       <textarea
         id="content"
         name="content"
-        placeholder="Text to Encode or Decode"
+        placeholder="Text to Decode or Encode"
         required={true}
         rows={3}
         onChange={handleContentChange}
@@ -39,7 +39,7 @@ function SubstitutionForm({
         name="Alphabet"
         placeholder="Alphabet to Use"
         required={true}
-        onChange={handleShiftChange}
+        onChange={handleAlphabetChange}
         value={alphabet}
       ></input>
     </div>
