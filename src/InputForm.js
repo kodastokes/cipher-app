@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import CaesarForm from "./CaesarForm";
+import PolybiusForm from "./PolybiusForm";
+import SubstitutionForm from "./SubstitutionForm";
 
 function InputForm(){
+
+    const [type, setType] = useState("Substitution Cypher");
+    const handleTypeChange = (event) => setType(event.target.value)
 
     const [content, setContent] = useState("");
     const handleContentChange = (event) => setContent(event.target.value)
@@ -26,41 +32,13 @@ function InputForm(){
         <legend>Cypher Shifter</legend>
         <div>
           <label htmlFor="type">Type: </label>
-          <select id="type" name="type" required={true} onChange={handleContentChange} value={content}>
+          <select id="type" name="type" required={true} onChange={handleContentChange} value={type}>
             <option>Caesar Shift</option>
             <option>Polybius Square</option>
             <option>Substitution Cypher</option>
           </select>
         </div>
-        <div>
-            <label htmlFor="content">Content: </label>
-            <textarea 
-                id="content" 
-                name="content" 
-                placeholder="Sentence to Shift" 
-                required={true} 
-                rows={3} 
-                onChange={handleContentChange} 
-                value={content}/>
-          <br/>
-            <label htmlFor="Shift"> Shift:</label>
-            <input 
-                id="shift" 
-                name="shift" 
-                placeholder="Number to Shift By" 
-                required={true} 
-                onChange={handleShiftChange} 
-                value={shift}></input>
-          <br/>
-            <label>
-            What do you want to do?
-            <select id="type" name="type" required={true} onChange={handleCheckedChange} value={checked}>
-                    <option>Decode</option>
-                    <option>Encode</option>
-                </select>
-
-      </label>
-        </div>
+        {type === "Caesar Shift" ? <CaesarForm/> : type === "Polybius Square" ? <PolybiusForm/> : <SubstitutionForm/>}
         <div>
           <button type="submit">Submit</button>
         </div>
@@ -72,3 +50,9 @@ function InputForm(){
 }
 
 export default InputForm
+
+// {type === "Text" ? (
+//   <textarea id="content" name="content" required={true} rows={3} onChange={handlePostChange} value={post}/>
+// ) : (
+//   <input id="content" name="content" type="url" required={true} onChange={handlePostChange} value={post}/>
+// )}
