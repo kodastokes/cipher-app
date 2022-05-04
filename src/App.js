@@ -12,9 +12,9 @@ import InputForm from "./InputForm";
 function App() {
   return (
     <>
-      <InputForm/>
+      <InputForm />
     </>
-  )
+  );
 }
 
 export default App;

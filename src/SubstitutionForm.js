@@ -6,7 +6,6 @@ function SubstitutionForm({
   alphabet,
   checked,
 }) {
-
   return (
     <div>
       <label>
