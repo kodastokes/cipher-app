@@ -3,7 +3,7 @@ import CaesarForm from "./CaesarForm";
 import PolybiusForm from "./PolybiusForm";
 import SubstitutionForm from "./SubstitutionForm";
 
-function InputForm() {
+function InputForm({createInfo}) {
   const [type, setType] = useState("Caesar Shift");
   const handleTypeChange = (event) => setType(event.target.value);
 
@@ -13,7 +13,7 @@ function InputForm() {
   const [shift, setShift] = useState("");
   const handleShiftChange = (event) => setShift(event.target.value);
 
-  const [encodeStatus, setEncodeStatus] = useState("");
+  const [encodeStatus, setEncodeStatus] = useState("Decode");
   const handleEncodeStatusChange = (event) => setEncodeStatus(event.target.value);
 
   const [alphabet, setAlphabet] = useState("");
@@ -21,10 +21,10 @@ function InputForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //createPost({type,post})
+    createInfo({type,content, shift, encodeStatus, alphabet})
     setContent("");
     setShift("");
-    setEncodeStatus("");
+    setEncodeStatus("Decode");
     setAlphabet("");
   };
 
