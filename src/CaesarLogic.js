@@ -3,15 +3,24 @@ import React from "react";
 function CaesarLogic({ info }) {
   function caesar(input, shift, encode) {
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let inputStr = input.toLowerCase();
-    let finalStr = "";
+    let inputString = input.toLowerCase();
+    let finalString = "";
     shift = parseInt(shift);
+
     if (encode === "Encode") {
       shift = -shift;
     }
 
-    for (let i = 0; i < inputStr.length; i++) {
-      let currentLetter = inputStr[i];
+    if (shift > 25 || shift < -25) {
+      shift = shift % 26;
+    }
+
+    if (shift === 0){
+      return inputString
+    }
+
+    for (let i = 0; i < inputString.length; i++) {
+      let currentLetter = inputString[i];
 
       let currentIndex = alphabet.indexOf(currentLetter);
       let newIndex = currentIndex + shift;
@@ -22,14 +31,12 @@ function CaesarLogic({ info }) {
         newIndex = newIndex + 26;
       }
       if (currentIndex < 0) {
-        finalStr += currentLetter;
+        finalString += currentLetter;
         continue;
-      }
-      if (shift == 0 || shift > 25 || shift < -25) {
-        return false;
-      } else finalStr += alphabet[newIndex];
+      } else finalString += alphabet[newIndex];
     }
-    return finalStr;
+    //finalString = finalString.toLocaleUpperCase()
+    return finalString;
   }
 
   if (info.content) {

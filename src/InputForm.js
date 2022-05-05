@@ -3,7 +3,7 @@ import CaesarForm from "./CaesarForm";
 import PolybiusForm from "./PolybiusForm";
 import SubstitutionForm from "./SubstitutionForm";
 
-function InputForm({createInfo}) {
+function InputForm({ createInfo }) {
   const [type, setType] = useState("Caesar Shift");
   const handleTypeChange = (event) => setType(event.target.value);
 
@@ -14,14 +14,15 @@ function InputForm({createInfo}) {
   const handleShiftChange = (event) => setShift(event.target.value);
 
   const [encodeStatus, setEncodeStatus] = useState("Decode");
-  const handleEncodeStatusChange = (event) => setEncodeStatus(event.target.value);
+  const handleEncodeStatusChange = (event) =>
+    setEncodeStatus(event.target.value);
 
   const [alphabet, setAlphabet] = useState("");
   const handleAlphabetChange = (event) => setAlphabet(event.target.value);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createInfo({type,content, shift, encodeStatus, alphabet})
+    createInfo({ type, content, shift, encodeStatus, alphabet });
     setContent("");
     setShift("");
     setEncodeStatus("Decode");
@@ -32,7 +33,7 @@ function InputForm({createInfo}) {
     event.preventDefault();
     setContent("");
     setShift("");
-    setEncodeStatus("");
+    setEncodeStatus("Decode");
     setAlphabet("");
   };
 
@@ -40,7 +41,7 @@ function InputForm({createInfo}) {
     <>
       <form name="create" onSubmit={handleSubmit} onReset={handleReset}>
         <fieldset>
-          <legend>Cypher Shifter</legend>
+          {/* <legend>Cypher Shifter</legend> */}
           <div>
             <label htmlFor="type">Type: </label>
             <select
