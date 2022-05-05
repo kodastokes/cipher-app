@@ -1,4 +1,6 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
 
 function PolybiusLogic({ info }) {
   function polybius(input, encode = true) {
@@ -117,12 +119,15 @@ function PolybiusLogic({ info }) {
   if (info.content) {
     return (
       <>
-        <p> The text you entered is: {info.content}</p>
-        <p>
-          {" "}
-          Your {info.encodeStatus.toLowerCase()}d text is:{" "}
-          {polybius(info.content, info.encodeStatus)}
-        </p>
+        <Row>
+          <Card body>Original Text: {info.content.toUpperCase()}</Card>
+        </Row>
+        <Row>
+          <Card body>
+            {info.encodeStatus}d text:{" "}
+            {polybius(info.content, info.encodeStatus).toUpperCase()}
+          </Card>
+        </Row>
       </>
     );
   }

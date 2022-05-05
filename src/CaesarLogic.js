@@ -1,4 +1,6 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
 
 function CaesarLogic({ info }) {
   function caesar(input, shift, encode) {
@@ -42,13 +44,18 @@ function CaesarLogic({ info }) {
   if (info.content) {
     return (
       <>
-        <p> The text you entered is: {info.content}</p>
-        <p> Your text was shifted by {info.shift}</p>
-        <p>
-          {" "}
-          Your {info.encodeStatus.toLowerCase()}d text is:{" "}
-          {caesar(info.content, info.shift, info.encodeStatus)}{" "}
-        </p>
+        <Row>
+          <Card body>Original Text: {info.content.toUpperCase()}</Card>
+        </Row>
+        {/* <Row>
+          <Card body>Your text was shifted by {info.shift}</Card>
+        </Row> */}
+        <Row>
+          <Card body>
+            {info.encodeStatus}d text:{" "}
+            {caesar(info.content, info.shift, info.encodeStatus).toUpperCase()}
+          </Card>
+        </Row>
       </>
     );
   }

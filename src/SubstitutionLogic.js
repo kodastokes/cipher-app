@@ -1,4 +1,6 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
 
 function SubstitutionLogic({ info }) {
   function substitution(input, alphabet = "", encode = true) {
@@ -54,12 +56,19 @@ function SubstitutionLogic({ info }) {
   if (info.content) {
     return (
       <>
-        <p> The text you entered is: {info.content}</p>
-        <p>
-          {" "}
-          Your {info.encodeStatus.toLowerCase()}d text is:{" "}
-          {substitution(info.content, info.alphabet, info.encodeStatus)}
-        </p>
+        <Row>
+          <Card body>Original Text: {info.content.toUpperCase()}</Card>
+        </Row>
+        <Row>
+          <Card body>
+            {info.encodeStatus}d text:{" "}
+            {substitution(
+              info.content,
+              info.alphabet,
+              info.encodeStatus
+            ).toUpperCase()}
+          </Card>
+        </Row>
       </>
     );
   }
