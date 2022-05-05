@@ -28,7 +28,7 @@ function SubstitutionForm({
         name="content"
         placeholder="Text to Decode or Encode"
         required={true}
-        rows={3}
+        rows={2}
         onChange={handleContentChange}
         value={content}
       />

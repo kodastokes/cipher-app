@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+  div {
+    /* border: 1px solid #61dafb; */
+  margin: 10px;
+}
+
+select, textarea, input {
+    /* border: 2px solid #3b9f22; */
+    /* padding: 10px; */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+label {
+  /* text-align: center; */
+  display: inline-block;
+  width: auto;
+  text-align: right;
+  vertical-align: middle;
+}
+
+button {
+  margin: 10px
+}

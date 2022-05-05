@@ -92,9 +92,3 @@ function InputForm() {
 }
 
 export default InputForm;
-
-// {type === "Text" ? (
-//   <textarea id="content" name="content" required={true} rows={3} onChange={handlePostChange} value={post}/>
-// ) : (
-//   <input id="content" name="content" type="url" required={true} onChange={handlePostChange} value={post}/>
-// )}
