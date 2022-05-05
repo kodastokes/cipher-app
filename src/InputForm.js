@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import CaesarForm from "./CaesarForm";
 import PolybiusForm from "./PolybiusForm";
 import SubstitutionForm from "./SubstitutionForm";
+import CaesarText from "./CaesarText";
+import PolybiusText from "./PolybiusText";
+import SubstitutionText from "./SubstitutionText";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function InputForm({ createInfo }) {
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Caesar Shift");
   const handleTypeChange = (event) => setType(event.target.value);
 
   const [content, setContent] = useState("");
@@ -27,9 +30,9 @@ function InputForm({ createInfo }) {
     event.preventDefault();
     createInfo({ type, content, shift, encodeStatus, alphabet });
     setContent("");
-    setShift("");
-    setEncodeStatus("Decode");
-    setAlphabet("");
+    setShift(shift);
+    setEncodeStatus(encodeStatus);
+    setAlphabet(alphabet);
   };
 
   const handleReset = (event) => {
@@ -44,7 +47,7 @@ function InputForm({ createInfo }) {
     <>
       <Form onSubmit={handleSubmit} onReset={handleReset}>
         <Form.Group className="mb-3" controlId="type">
-          <Form.Label>Type of Cypher</Form.Label>
+          <Form.Label>Type of Cipher</Form.Label>
           <Form.Select
             aria-label="Default select example"
             id="type"
@@ -57,6 +60,15 @@ function InputForm({ createInfo }) {
             <option>Polybius Square</option>
             <option>Substitution Cypher</option>
           </Form.Select>
+          <Form.Text>
+            {type === "Caesar Shift" ? (
+              <CaesarText />
+            ) : type === "Polybius Square" ? (
+              <PolybiusText />
+            ) : (
+              <SubstitutionText />
+            )}
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="type">

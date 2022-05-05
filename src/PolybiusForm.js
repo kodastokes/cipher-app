@@ -1,11 +1,6 @@
-import Form from "react-bootstrap/Form";
+//import Form from "react-bootstrap/Form";
 
-function PolybiusForm({
-  handleContentChange,
-  handleEncodeStatusChange,
-  content,
-  encodeStatus,
-}) {
+function PolybiusForm({}) {
   return (
     <>
       {/* <Form.Group className="mb-3" controlId="content">
