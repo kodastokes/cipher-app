@@ -37,6 +37,7 @@ function CaesarForm({
       <input
         id="shift"
         name="shift"
+        type="number"
         placeholder="Number to Shift By"
         required={true}
         onChange={handleShiftChange}

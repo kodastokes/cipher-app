@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 function LogicTest({ info }) {
   function caesar(input, shift, encode) {
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let inputStr = input.toLowerCase();
     let finalStr = "";
+    shift = parseInt(shift)
     if (encode === "Encode") {
       shift = -shift;
     }
@@ -30,16 +31,12 @@ function LogicTest({ info }) {
     }
     return finalStr;
   }
-  
-  console.log(caesar("qbpq", 3, "Decode"));
-  //   console.log(caesar("test", 3, "Encode"))
-
-  console.log(info.content, info.shift, info.encodeStatus);
 
   if (info.content) {
     return (
       <>
-        <div> {caesar(info.content, info.shift, info.encodeStatus)} </div>
+        <p> The text you entered is: {info.content}</p>
+        <p> Your {info.encodeStatus.toLowerCase()}d text is: {caesar(info.content, info.shift, info.encodeStatus)} </p>
       </>
     );
   }
