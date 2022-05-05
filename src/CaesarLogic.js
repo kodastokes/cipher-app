@@ -1,11 +1,11 @@
 import React from "react";
 
-function LogicTest({ info }) {
+function CaesarLogic({ info }) {
   function caesar(input, shift, encode) {
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let inputStr = input.toLowerCase();
     let finalStr = "";
-    shift = parseInt(shift)
+    shift = parseInt(shift);
     if (encode === "Encode") {
       shift = -shift;
     }
@@ -36,10 +36,14 @@ function LogicTest({ info }) {
     return (
       <>
         <p> The text you entered is: {info.content}</p>
-        <p> Your {info.encodeStatus.toLowerCase()}d text is: {caesar(info.content, info.shift, info.encodeStatus)} </p>
+        <p>
+          {" "}
+          Your {info.encodeStatus.toLowerCase()}d text is:{" "}
+          {caesar(info.content, info.shift, info.encodeStatus)}{" "}
+        </p>
       </>
     );
   }
 }
 
-export default LogicTest;
+export default CaesarLogic;

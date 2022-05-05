@@ -1,7 +1,9 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import InputForm from "./InputForm";
-import LogicTest from "./LogicTest";
+import CaesarLogic from "./CaesarLogic";
+import PolybiusLogic from "./PolybiusLogic";
+import SubstitutionLogic from "./SubstitutionLogic";
 
 function App() {
 
@@ -13,7 +15,7 @@ function App() {
   return (
     <>
       <InputForm createInfo={createInfo}/>
-      <LogicTest info={info} />
+      {info.type === "Caesar Shift" ? <CaesarLogic info={info} /> : info.type === "Polybius Square" ? <PolybiusLogic info={info} /> : <SubstitutionLogic info={info} /> }
     </>
   );
 }

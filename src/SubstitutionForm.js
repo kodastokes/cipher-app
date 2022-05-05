@@ -35,12 +35,16 @@ function SubstitutionForm({
       <br />
       <label htmlFor="Alphabet"> Cypher Alphabet:</label>
       <input
+        type="text"
         id="Alphabet"
         name="Alphabet"
         placeholder="Alphabet to Use"
         required={true}
         onChange={handleAlphabetChange}
         value={alphabet}
+        //minLength={26}
+        maxLength={26}
+        size={26}
       ></input>
     </div>
   );
