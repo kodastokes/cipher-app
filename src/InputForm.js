@@ -3,8 +3,11 @@ import CaesarForm from "./CaesarForm";
 import PolybiusForm from "./PolybiusForm";
 import SubstitutionForm from "./SubstitutionForm";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 function InputForm({ createInfo }) {
-  const [type, setType] = useState("Caesar Shift");
+  const [type, setType] = useState("");
   const handleTypeChange = (event) => setType(event.target.value);
 
   const [content, setContent] = useState("");
@@ -39,57 +42,123 @@ function InputForm({ createInfo }) {
 
   return (
     <>
-      <form name="create" onSubmit={handleSubmit} onReset={handleReset}>
-        <fieldset>
-          {/* <legend>Cypher Shifter</legend> */}
-          <div>
-            <label htmlFor="type">Type: </label>
-            <select
-              id="type"
-              name="type"
-              required={true}
-              onChange={handleTypeChange}
-              value={type}
-            >
-              <option>Caesar Shift</option>
-              <option>Polybius Square</option>
-              <option>Substitution Cypher</option>
-            </select>
-          </div>
-          {type === "Caesar Shift" ? (
-            <CaesarForm
-              handleContentChange={handleContentChange}
-              handleShiftChange={handleShiftChange}
-              handleEncodeStatusChange={handleEncodeStatusChange}
-              content={content}
-              shift={shift}
-              encodeStatus={encodeStatus}
-            />
-          ) : type === "Polybius Square" ? (
-            <PolybiusForm
-              handleContentChange={handleContentChange}
-              handleEncodeStatusChange={handleEncodeStatusChange}
-              content={content}
-              encodeStatus={encodeStatus}
-            />
-          ) : (
-            <SubstitutionForm
-              handleContentChange={handleContentChange}
-              handleAlphabetChange={handleAlphabetChange}
-              handleEncodeStatusChange={handleEncodeStatusChange}
-              content={content}
-              alphabet={alphabet}
-              encodeStatus={encodeStatus}
-            />
-          )}
-          <div>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-          </div>
-        </fieldset>
-      </form>
+      <Form onSubmit={handleSubmit} onReset={handleReset}>
+        <Form.Group className="mb-3" controlId="type">
+          <Form.Label>Type of Cypher</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            id="type"
+            name="type"
+            required={true}
+            onChange={handleTypeChange}
+            value={type}
+          >
+            <option>Caesar Shift</option>
+            <option>Polybius Square</option>
+            <option>Substitution Cypher</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="type">
+          <Form.Label>What would you like to do?</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            id="type"
+            name="type"
+            required={true}
+            onChange={handleEncodeStatusChange}
+            value={encodeStatus}
+          >
+            <option>Decode</option>
+            <option>Encode</option>
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="content">
+          <Form.Label htmlFor="content">Content</Form.Label>
+          <Form.Control
+            id="content"
+            name="content"
+            required={true}
+            as="textarea"
+            rows={2}
+            placeholder="Text to Decode or Encode"
+            onChange={handleContentChange}
+            value={content}
+          />
+        </Form.Group>
+        {type === "Caesar Shift" ? (
+          <CaesarForm handleShiftChange={handleShiftChange} shift={shift} />
+        ) : type === "Polybius Square" ? (
+          <PolybiusForm />
+        ) : (
+          <SubstitutionForm
+            handleAlphabetChange={handleAlphabetChange}
+            alphabet={alphabet}
+          />
+        )}
+
+        <Button className="m-2" variant="primary" type="submit">
+          Submit
+        </Button>
+        <Button variant="outline-primary" type="reset">
+          Reset
+        </Button>
+      </Form>
     </>
   );
 }
 
 export default InputForm;
+
+// <>
+//   <form name="create" onSubmit={handleSubmit} onReset={handleReset}>
+//     <fieldset>
+//       {/* <legend>Cypher Shifter</legend> */}
+//       <div>
+//         <label htmlFor="type">Type: </label>
+//         <select
+//           id="type"
+//           name="type"
+//           required={true}
+//           onChange={handleTypeChange}
+//           value={type}
+//         >
+//           <option>Caesar Shift</option>
+//           <option>Polybius Square</option>
+//           <option>Substitution Cypher</option>
+//         </select>
+//       </div>
+//       {type === "Caesar Shift" ? (
+//         <CaesarForm
+//           handleContentChange={handleContentChange}
+//           handleShiftChange={handleShiftChange}
+//           handleEncodeStatusChange={handleEncodeStatusChange}
+//           content={content}
+//           shift={shift}
+//           encodeStatus={encodeStatus}
+//         />
+//       ) : type === "Polybius Square" ? (
+//         <PolybiusForm
+//           handleContentChange={handleContentChange}
+//           handleEncodeStatusChange={handleEncodeStatusChange}
+//           content={content}
+//           encodeStatus={encodeStatus}
+//         />
+//       ) : (
+//         <SubstitutionForm
+//           handleContentChange={handleContentChange}
+//           handleAlphabetChange={handleAlphabetChange}
+//           handleEncodeStatusChange={handleEncodeStatusChange}
+//           content={content}
+//           alphabet={alphabet}
+//           encodeStatus={encodeStatus}
+//         />
+//       )}
+//       <div>
+//         <button type="submit">Submit</button>
+//         <button type="reset">Reset</button>
+//       </div>
+//     </fieldset>
+//   </form>
+//   </>

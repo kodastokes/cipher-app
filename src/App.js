@@ -5,6 +5,8 @@ import CaesarLogic from "./CaesarLogic";
 import PolybiusLogic from "./PolybiusLogic";
 import SubstitutionLogic from "./SubstitutionLogic";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 
   const [info, setInfo] = useState({})

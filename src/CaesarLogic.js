@@ -15,8 +15,8 @@ function CaesarLogic({ info }) {
       shift = shift % 26;
     }
 
-    if (shift === 0){
-      return inputString
+    if (shift === 0) {
+      return inputString;
     }
 
     for (let i = 0; i < inputString.length; i++) {
@@ -43,6 +43,7 @@ function CaesarLogic({ info }) {
     return (
       <>
         <p> The text you entered is: {info.content}</p>
+        <p> Your text was shifted by {info.shift}</p>
         <p>
           {" "}
           Your {info.encodeStatus.toLowerCase()}d text is:{" "}
