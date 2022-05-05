@@ -1,20 +1,22 @@
 import "./App.css";
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+
 import InputForm from "./InputForm";
 import CaesarLogic from "./CaesarLogic";
 import PolybiusLogic from "./PolybiusLogic";
 import SubstitutionLogic from "./SubstitutionLogic";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
   const [info, setInfo] = useState({});
   const [answer, setAnswer] = useState({});
 
   const createInfo = (newInfo) => setInfo(newInfo);
-  const createAnswer = (newAnswer) => setAnswer(newAnswer)
+  // const createAnswer = (newAnswer) => setAnswer(newAnswer)
 
   return (
     <>
