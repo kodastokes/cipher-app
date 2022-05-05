@@ -11,7 +11,14 @@ import Button from "react-bootstrap/Button";
 
 function InputForm({ createInfo }) {
   const [type, setType] = useState("Caesar Shift");
-  const handleTypeChange = (event) => setType(event.target.value);
+  const handleTypeChange = (event) => {
+    setType(event.target.value)
+    createInfo({})
+    setContent("");
+    setShift("");
+    setEncodeStatus("Decode");
+    setAlphabet("");
+  };
 
   const [content, setContent] = useState("");
   const handleContentChange = (event) => setContent(event.target.value);
@@ -41,6 +48,7 @@ function InputForm({ createInfo }) {
     setShift("");
     setEncodeStatus("Decode");
     setAlphabet("");
+    createInfo({})
   };
 
   return (

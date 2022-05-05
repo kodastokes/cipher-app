@@ -16,7 +16,6 @@ function App() {
   const [answer, setAnswer] = useState({});
 
   const createInfo = (newInfo) => setInfo(newInfo);
-  // const createAnswer = (newAnswer) => setAnswer(newAnswer)
 
   return (
     <>
