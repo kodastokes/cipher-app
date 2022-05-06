@@ -9,7 +9,7 @@ function SubstitutionForm({ handleAlphabetChange, alphabet }) {
           id="alphabet"
           name="alphabet"
           as="input"
-          placeholder="Enter 26 Character Alphabet"
+          placeholder="Enter 26 Unique Characters Here"
           required={true}
           onChange={handleAlphabetChange}
           value={alphabet}

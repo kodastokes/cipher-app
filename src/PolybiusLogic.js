@@ -111,7 +111,9 @@ function PolybiusLogic({ info }) {
         }
         finalString += decodingObject[letter];
       }
-
+      if (finalString.includes("undefined")){
+        return "Error: Please enter valid Polybius Square number pairs."
+      }
       return finalString;
     }
   }

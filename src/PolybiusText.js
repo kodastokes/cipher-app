@@ -3,7 +3,7 @@ function PolybiusText() {
       <>
         <p></p>
         <p>
-        A standard Polybius Square cipher uses a 5x5 table to convert letters into numbers. In order to fit all 26 letters of the English alphabet into the table, the letters "i" and "j" are combined into a single cell. When decoding with a Polybius Square, those letters will record as "i/j." For decoding, each letter must be given as a standard Polybius number pair.
+        A  Polybius Square cipher uses a 5x5 table to convert letters into number pairs. In order to fit all letters of the English alphabet into the 25 cell table, the letters "i" and "j" are combined and will display as "i/j." To decode successfully, each letter must be given as a valid Polybius number pair.
         </p>
       </>
     );

@@ -16,7 +16,7 @@ function InputForm({ createInfo }) {
     createInfo({})
     setContent("");
     setShift("");
-    setEncodeStatus("Decode");
+    setEncodeStatus("Encode");
     setAlphabet("");
   };
 
@@ -26,7 +26,7 @@ function InputForm({ createInfo }) {
   const [shift, setShift] = useState("");
   const handleShiftChange = (event) => setShift(event.target.value);
 
-  const [encodeStatus, setEncodeStatus] = useState("Decode");
+  const [encodeStatus, setEncodeStatus] = useState("Encode");
   const handleEncodeStatusChange = (event) =>
     setEncodeStatus(event.target.value);
 
@@ -46,7 +46,7 @@ function InputForm({ createInfo }) {
     event.preventDefault();
     setContent("");
     setShift("");
-    setEncodeStatus("Decode");
+    setEncodeStatus("Encode");
     setAlphabet("");
     createInfo({})
   };
@@ -89,8 +89,8 @@ function InputForm({ createInfo }) {
             onChange={handleEncodeStatusChange}
             value={encodeStatus}
           >
-            <option>Decode</option>
             <option>Encode</option>
+            <option>Decode</option>
           </Form.Select>
         </Form.Group>
 
@@ -102,7 +102,7 @@ function InputForm({ createInfo }) {
             required={true}
             as="textarea"
             rows={2}
-            placeholder="Text to Decode or Encode"
+            placeholder="Text to Encode or Decode"
             onChange={handleContentChange}
             value={content}
           />
