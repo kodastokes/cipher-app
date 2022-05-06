@@ -21,6 +21,10 @@ function CaesarLogic({ info }) {
       return inputString;
     }
 
+    // if (typeof(shift) === "string"){
+    //   return "Please enter a valid number for the shift."
+    // }
+
     for (let i = 0; i < inputString.length; i++) {
       let currentLetter = inputString[i];
 
@@ -37,7 +41,10 @@ function CaesarLogic({ info }) {
         continue;
       } else finalString += alphabet[newIndex];
     }
-    //finalString = finalString.toLocaleUpperCase()
+    
+    if (finalString.includes("undefined")) {
+      return "Error: Please enter a valid number for the shift.";
+    }
     return finalString;
   }
 

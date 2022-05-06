@@ -5,13 +5,13 @@ import Card from "react-bootstrap/Card";
 function SubstitutionLogic({ info }) {
   function substitution(input, alphabet = "", encode = true) {
     if (alphabet.length !== 26)
-      return "The cypher alphabet must be exactly 26 characters long";
+      return "Error: The cypher alphabet must be exactly 26 characters long";
 
     let alphabetArray = alphabet.split("");
     let sortedAlphabetArray = alphabetArray.sort();
     for (let i = 0; i < sortedAlphabetArray.length; i++) {
       if (sortedAlphabetArray[i] === sortedAlphabetArray[i + 1]) {
-        return "Please enter a unique character for each letter in the cypher alphabet";
+        return "Error: Please enter a unique character for each letter in the cypher alphabet";
       }
     }
 

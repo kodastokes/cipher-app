@@ -58,7 +58,6 @@ function InputForm({ createInfo }) {
           <Form.Label>Type of Cipher</Form.Label>
           <Form.Select
             aria-label="Default select example"
-            id="type"
             name="type"
             required={true}
             onChange={handleTypeChange}
@@ -79,12 +78,11 @@ function InputForm({ createInfo }) {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="type">
+        <Form.Group className="mb-3" controlId="encode">
           <Form.Label>What would you like to do?</Form.Label>
           <Form.Select
             aria-label="Default select example"
-            id="type"
-            name="type"
+            name="encode"
             required={true}
             onChange={handleEncodeStatusChange}
             value={encodeStatus}
@@ -95,9 +93,8 @@ function InputForm({ createInfo }) {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="content">
-          <Form.Label htmlFor="content">Content</Form.Label>
+          <Form.Label>Content</Form.Label>
           <Form.Control
-            id="content"
             name="content"
             required={true}
             as="textarea"
