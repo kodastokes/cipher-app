@@ -17,10 +17,10 @@ function App() {
 
   return (
     <>
-      <Container fluid>
+      <Container >
         <Row>
-          <Card bg="light">
-              <Card.Title className="m-3">
+          <Card bg="light" className='text-center' >
+              <Card.Title className="m-3"  >
                 Cipher Encoder and Decoder
               </Card.Title>
           </Card>
