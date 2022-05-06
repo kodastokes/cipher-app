@@ -66,7 +66,7 @@ function InputForm({ createInfo }) {
           >
             <option>Caesar Shift</option>
             <option>Polybius Square</option>
-            <option>Substitution Cypher</option>
+            <option>Substitution Cipher</option>
           </Form.Select>
           <Form.Text>
             {type === "Caesar Shift" ? (
